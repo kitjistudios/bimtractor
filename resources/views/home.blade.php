@@ -17,6 +17,9 @@
                     You are logged in!
                 </div>
             </div>
+        </div >
+        <div class="col-md-4">
+            <input type="file" accept="image/*" capture="camera" id="MyPhoto">
         </div>
     </div>
 </div>
