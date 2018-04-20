@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
@@ -19,7 +19,11 @@
             </div>
         </div >
         <div class="col-md-4">
-            <input type="file" accept="image/*" capture="camera" id="MyPhoto">
+            <a href="media/create">Take a pic</a>
+        </div>
+        <div class="col-md-4">
+           
+           
         </div>
     </div>
 </div>
