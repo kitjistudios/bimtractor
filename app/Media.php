@@ -15,11 +15,17 @@ class Media extends Model {
         // $test = $request::input('text1');
         //$test2 = $request->input('text1');
         //return 1;
+        $ncoder = base64_encode($request->input('MyPhoto'));
         return Media::create([
                     'name' => $request->input('text1'),
                     'email' => 'test@test.com',
-                    'media' => $request->input('MyPhoto'),
+                    'media' => $ncoder,
         ]);  /**/
+    }
+
+    public function FetchMedia($id) {
+        $test = DB::table('media')->where('id', $id)->first();
+        return $test;
     }
 
 }
