@@ -11,17 +11,21 @@
   |
  */
 
-Route::get('/', function () {
-    return view('home');
+Route::get('', function () {
+    return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@welcome')->name('home');
-
+//Route::get('home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index');
 Route::get('media', 'MediaController@index');
 
+//Route::get('login', 'LoginController@index');
+
 Route::get('media/create', 'MediaController@create');
+Route::get('media/show/{id}', 'MediaController@show');
+Route::get('media/show', 'MediaController@index');
 
 Route::post('/media/store', 'MediaController@store');
 /*Route::get('media/create', function () {
