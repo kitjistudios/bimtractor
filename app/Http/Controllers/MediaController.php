@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MediaController extends Controller {
 
@@ -44,7 +45,7 @@ class MediaController extends Controller {
     public function store(Request $request) {
         //
         //return dd(request()->all());
-       // $request = dd(request()->all());
+        // $request = dd(request()->all());
         $media = new Media();
 
         $media->SaveMedia($request);
@@ -56,8 +57,16 @@ class MediaController extends Controller {
      * @param  \App\Media  $media
      * @return \Illuminate\Http\Response
      */
-    public function show(Media $media) {
+    //public function show(Media $media) {
+    public function show($id) {
         //
+        $test = DB::table('media')->where('id', $id)->first();
+        //return $test;
+        $media = $test->media; //blob file
+        //$response['type'] = $test->image_type;
+        //$media = base64_encode($media);
+        $media = base64_decode($media);
+        return view('media.show', ['media' => $media]);
     }
 
     /**
